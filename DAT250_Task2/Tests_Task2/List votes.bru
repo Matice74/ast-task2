@@ -1,0 +1,15 @@
+meta {
+  name: List votes
+  type: http
+  seq: 9
+}
+
+get {
+  url: http://localhost:8080/votes
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

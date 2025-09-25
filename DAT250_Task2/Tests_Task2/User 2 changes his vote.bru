@@ -1,0 +1,26 @@
+meta {
+  name: User 2 changes his vote
+  type: http
+  seq: 8
+}
+
+post {
+  url: http://localhost:8080/votes
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "user": {"id": 2},
+    "option": {"id": 2}
+  }
+}
+
+settings {
+  encodeUrl: true
+}

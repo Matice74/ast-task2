@@ -1,0 +1,19 @@
+meta {
+  name: List all users again
+  type: http
+  seq: 4
+}
+
+get {
+  url: {
+  "username": "user2",
+  "email": "user2@example.com"
+}
+
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

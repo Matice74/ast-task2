@@ -1,0 +1,13 @@
+Schritt 1 Bruno aufgesetzt und erste Funktionen mittels des Programms von letzter Woche getestet 
+Schritt 2 neues Git Repository erstellt und SpringBoot Application rein geladen da saubere Trennung zwischen einzelnen Wochen gewünscht
+Schritt 3 Ordner Domain erstellt und die einzelnen gewünschten Java Beans erstellt. Attribute bislang nur die aus dem UML Diagramm
+Schritt 4 Testszenarien verfasst 
+Schritt 5 Controller geschrieben 
+Schritt 6 Tests automatisieren (läuft easy mit Bruno) 
+
+Zunächst Fehler weil VoteController vergessen,dann weil Update Funktion nicht eingebaut, dann weil Votes nicht automatisch gelöscht wenn Poll gelöscht
+
+-Dann Tests erfolgreich
+
+-Swagger-Ui Controller angeschaut
+-->Alle Operationen jeweils enthalten
