@@ -54,3 +54,15 @@ After fixing these problems, all tests ran successfully.
   implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0")
   implementation("org.springdoc:springdoc-openapi-starter-webmvc-api:2.6.0")
 - Found all of the Controllers on the site
+
+### Conclusion
+
+This experiment provided hands-on experience with:
+
+- Designing and implementing a REST API using Spring Boot.  
+- Managing in-memory domain models and avoiding JSON serialization cycles.  
+- Using Bruno for both manual and automated HTTP testing.  
+- Integrating Swagger UI for live API documentation.  
+
+The final application successfully supports all required CRUD operations and passes the designed automated test scenarios. There are no pending issues left.
+
