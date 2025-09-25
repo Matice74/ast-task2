@@ -43,7 +43,7 @@ Special attention was required to handle the cyclic associations in the domain m
 - Automated the above test scenarios in **Bruno**, allowing quick execution of the entire sequence.
 - Encountered and fixed several issues:
   - Missing `VoteController` initially caused errors.
-  - Update functionality was not implemented at first.
+  - Update functionality was not implemented at first (cause I forogt it).
   - Votes were not automatically removed when a poll was deleted.
 
 After fixing these problems, all tests ran successfully.
