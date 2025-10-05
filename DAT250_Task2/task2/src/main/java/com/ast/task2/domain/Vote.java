@@ -1,19 +1,28 @@
 package com.ast.task2.domain;
 
 import java.time.Instant;
+import jakarta.persistence.*;
 
+@Entity
 public class Vote {
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private Instant publishedAt;
-    private VoteOption option; // 1..1
-    private User user; // 0..1, falls anonym
+
+    @ManyToOne(optional = false)
+    private VoteOption votesOn;  // UML: votedOn
+
+    @ManyToOne
+    private User user;
 
     public Vote() {}
 
-    public Vote(Instant publishedAt, VoteOption option, User user, Long id) {
+    public Vote(Instant publishedAt, VoteOption votesOn, User user, Long id) {
         this.id = id;
         this.publishedAt = publishedAt;
-        this.option = option;
+        this.votesOn = votesOn;
         this.user = user;
     }
 
@@ -24,9 +33,11 @@ public class Vote {
     public Instant getPublishedAt() { return publishedAt; }
     public void setPublishedAt(Instant publishedAt) { this.publishedAt = publishedAt; }
 
-    public VoteOption getOption() { return option; }
-    public void setOption(VoteOption option) { this.option = option; }
+    public VoteOption getOption() { return votesOn; }
+    public void setOption(VoteOption option) { this.votesOn = option; }
 
     public User getUser() { return user; }
     public void setUser(User user) { this.user = user; }
+    public void setVotesOn(VoteOption option) { this.votesOn = option; }
+    
 }

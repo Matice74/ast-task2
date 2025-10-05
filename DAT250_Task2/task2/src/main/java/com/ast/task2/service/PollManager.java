@@ -46,6 +46,10 @@ public class PollManager {
         return user;
     }
 
+    public Optional<VoteOption> getVoteOptionById(long id) {
+        return Optional.ofNullable(voteOptions.get(id));
+    }
+
     public void deleteUser(long id) {
         users.remove(id);
 

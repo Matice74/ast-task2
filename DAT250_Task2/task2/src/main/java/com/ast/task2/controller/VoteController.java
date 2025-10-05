@@ -7,6 +7,7 @@ import com.ast.task2.service.PollManager;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Map;
 
 @CrossOrigin(origins = "*") 
 @RestController
@@ -29,19 +30,23 @@ public class VoteController {
         return manager.getVoteById(id).orElse(null);
     }
 
-    // --- POST mit JSON ---
     @PostMapping
-    public Vote createVote(@RequestBody Vote vote) {
-        User user = null;
-        if (vote.getUser() != null) {
-            user = manager.getUserById(vote.getUser().getId()).orElse(null);
-        }
+    public Vote createVote(@RequestBody Map<String, Object> payload) {
+    System.out.println("Incoming vote payload: " + payload);
+    Long userId = payload.get("user") != null ? ((Number)((Map)payload.get("user")).get("id")).longValue() : null;
+    Long optionId = ((Number)((Map)payload.get("option")).get("id")).longValue();
 
-        VoteOption option = vote.getOption();
-        if (option == null) throw new RuntimeException("VoteOption missing");
+    User user = userId != null ? manager.getUserById(userId).orElse(null) : null;
+    VoteOption option = manager.getVoteOptionById(optionId)
+        .orElseThrow(() -> new RuntimeException("VoteOption not found"));
+    long count = manager.getAllVotes().stream()
+        .filter(v -> v.getOption().getId() == option.getId())
+        .count();
+    System.out.println("Option '" + option.getCaption() + "' hat jetzt " + count + " Votes.");
 
-        return manager.createVote(user, option);
-    }
+    return manager.createVote(user, option);
+}
+
 
     @DeleteMapping("/{id}")
     public void deleteVote(@PathVariable long id) {
