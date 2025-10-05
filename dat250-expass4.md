@@ -9,3 +9,5 @@
 - Added `runtimeOnly("com.h2database:h2:2.3.232")` to `build.gradle.kts` dependencies.  
 - Added the following code to the `setUp()` function to list tables:
 - Added an extra function that prints all tables in the console.
+
+![H2 Tables Screenshot](Tables_Task3.png)
